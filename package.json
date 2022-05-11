@@ -4,7 +4,7 @@
   "description": "API - NODEJS - Clean Architecture - TDD",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -12,17 +12,19 @@
   "script": {
     "lint-staged": {
       "*.js": [
-        "standard --fix", "git add"
+        "standard --fix",
+        "git add"
       ]
     }
   },
-  "husky":{
-    "hooks":{
-      "pre-commit":"lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
   "devDependencies": {
     "husky": "^8.0.1",
+    "jest": "^28.1.0",
     "lint-staged": "^12.4.1",
     "standard": "^17.0.0"
   }
