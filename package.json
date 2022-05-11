@@ -4,7 +4,8 @@
   "description": "API - NODEJS - Clean Architecture - TDD",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll",
+    "test-staged": "jest"
   },
   "standard": {
     "env": [
