@@ -10,17 +10,7 @@
   "author": "",
   "license": "ISC",
   "script": {
-    "lint-staged": {
-      "*.js": [
-        "standard --fix",
-        "git add"
-      ]
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "test": "jest" 
   },
   "devDependencies": {
     "husky": "^8.0.1",
