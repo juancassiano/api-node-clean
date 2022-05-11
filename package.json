@@ -6,11 +6,16 @@
   "scripts": {
     "test": "jest"
   },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "script": {
-    "test": "jest" 
+    "test": "jest"
   },
   "devDependencies": {
     "husky": "^8.0.1",
