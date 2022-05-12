@@ -4,7 +4,7 @@
   "description": "API - NODEJS - Clean Architecture - TDD",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --colors --noStackTrace ",
+    "test": "jest --coverage --watchAll --colors --noStackTrace ",
     "test-staged": "jest --passWithNoTests --findRelatedTests --silent --noStackTrace",
     "test:ci": "jest --coverage --noStackTrace "
   },
