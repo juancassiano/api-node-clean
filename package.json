@@ -4,9 +4,10 @@
   "description": "API - NODEJS - Clean Architecture - TDD",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --watchAll --colors --noStackTrace ",
-    "test-staged": "jest --passWithNoTests --findRelatedTests --silent --noStackTrace",
-    "test:ci": "jest --coverage --noStackTrace "
+    "test": "jest --colors --noStackTrace --passWithNoTests ",
+    "test:unit": "npm test -- --watch",
+    "test-staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage"
   },
   "standard": {
     "env": [
