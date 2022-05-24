@@ -1,6 +1,10 @@
 module.exports = {
   token: "any_token",
-  sign(id, secre) {
+  id: "",
+  secret: "",
+  sign(id, secret) {
+    this.id = id;
+    this.secret = secret;
     return this.token;
   },
 };
