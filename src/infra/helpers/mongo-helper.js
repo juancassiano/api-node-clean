@@ -9,6 +9,8 @@ module.exports = {
       useUnifiedTopology: true,
     });
     this.db = this.client.db(dbName);
+    this.client = null;
+    this.db = null;
   },
 
   async disconnect() {
@@ -16,7 +18,7 @@ module.exports = {
   },
 
   async getDb() {
-    if (!this.client.isConnected()) {
+    if (!this.client || !this.client.isConnected()) {
       await this.connect(this.uri, this.dbName);
     }
     return this.db;
