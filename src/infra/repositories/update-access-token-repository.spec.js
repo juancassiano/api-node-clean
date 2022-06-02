@@ -31,6 +31,7 @@ describe("UpdateAccessToken Repository", () => {
   afterAll(async () => {
     await MongoHelper.disconnect();
   });
+
   test("Should update the user with the given access token", async () => {
     const userModel = db.collection("users");
     const sut = new AccessTokenRepository(userModel);
@@ -46,5 +47,19 @@ describe("UpdateAccessToken Repository", () => {
       _id: fakeUser.ops[0]._id,
     });
     expect(updatedFakeUser.accessToken).toBe("valid_token");
+  });
+
+  test("Should throw if no userModel is provided", async () => {
+    const { sut } = new AccessTokenRepository();
+    const userModel = db.collection("users");
+    const fakeUser = await userModel.insertOne({
+      email: "valid_email@mail.com",
+      name: "any_name",
+      age: 40,
+      state: "any_state",
+      password: "hashed_password",
+    });
+    const promise = sut.update(fakeUser.ops[0]._id, "valid_token");
+    expect(promise).rejects.toThrow();
   });
 });
