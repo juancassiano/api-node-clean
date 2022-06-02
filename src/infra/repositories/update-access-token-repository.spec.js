@@ -2,7 +2,7 @@ const MongoHelper = require("../helpers/mongo-helper");
 
 let db;
 
-class UpdateAccessToken {
+class UpdateAccessTokenRepository {
   constructor(userModel) {
     this.userModel = userModel;
   }
@@ -17,6 +17,13 @@ class UpdateAccessToken {
       };
   }
 }
+
+const makeSut = () => {
+  const userModel = db.collection("users");
+  const sut = new UpdateAccessTokenRepository(userModel);
+
+  return { userModel, sut };
+};
 
 describe("UpdateAccessToken Repository", () => {
   beforeAll(async () => {
@@ -33,8 +40,7 @@ describe("UpdateAccessToken Repository", () => {
   });
 
   test("Should update the user with the given access token", async () => {
-    const userModel = db.collection("users");
-    const sut = new AccessTokenRepository(userModel);
+    const { userModel, sut } = makeSut();
     const fakeUser = await userModel.insertOne({
       email: "valid_email@mail.com",
       name: "any_name",
@@ -50,7 +56,7 @@ describe("UpdateAccessToken Repository", () => {
   });
 
   test("Should throw if no userModel is provided", async () => {
-    const { sut } = new AccessTokenRepository();
+    const sut = new UpdateAccessTokenRepository();
     const userModel = db.collection("users");
     const fakeUser = await userModel.insertOne({
       email: "valid_email@mail.com",
