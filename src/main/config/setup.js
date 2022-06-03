@@ -1,4 +1,5 @@
 const cors = require("../middlewares/cors");
+const contentType = require("../middlewares/content-type");
 const express = require("express");
 const jsonParser = require("../middlewares/json-parser");
 
@@ -7,4 +8,5 @@ module.exports = (app) => {
 
   app.use(cors);
   app.use(jsonParser);
+  app.use(contentType);
 };
