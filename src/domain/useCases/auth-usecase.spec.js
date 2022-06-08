@@ -198,7 +198,7 @@ describe("Auth UseCase", () => {
       new AuthUseCase({}),
       new AuthUseCase({ loadUserByEmailRepository: {} }),
       new AuthUseCase({
-        loadUserByEmailRepository,
+        loadUserByEmailRepository: invalid,
       }),
       new AuthUseCase({
         loadUserByEmailRepository,
